@@ -3,16 +3,18 @@
 int main() {
     int carta1, populacao1, p_turistico1;
     char codigo1[5], estado1[30], cidade1[30];
-    float area1, pib1;
+    float area1, pib1, densidade1, pibpc1;
     
     int carta2, populacao2, p_turistico2;
     char codigo2[5], estado2[30], cidade2[30];
-    float area2, pib2;
+    float area2, pib2, densidade2, pibpc2;
 
     /*
     carta: número da carta
     p_turistico: número de pontos turísticos
     codigo: código da carta
+    densidade: Densidade populacional
+    pibpc: P.I.B. per capita
     */
 
     printf("Vamos criar uma carta para o jogo de super trunfo! \n");
@@ -40,11 +42,16 @@ int main() {
     printf("Digite sua quantidade pontos turísticos: \n");
     scanf("%d", &p_turistico1);
 
+    densidade1 = populacao1 / area1;
+    pibpc1 = pib1 / populacao1;
+
     printf("Carta 01 \n");
     printf("Codígo da carta: %s \n", codigo1);
     printf("Estado: %s - Cidade: %s \n", estado1, cidade1);
     printf("População: %d - Área: %f \n", populacao1, area1);
     printf("PIB: %f - Quantidade de pontos turísticos: %d \n", pib1, p_turistico1);
+    printf("Densidade populacional: %f \n", densidade1);
+    printf("P.I.B. per capita: %f \n", pibpc1);
 
     printf("Agora vamos criar uma segunda carta! \n");
     printf("Digite o nome de outro estado brasileiro: \n");
@@ -71,11 +78,16 @@ int main() {
     printf("Digite sua quantidade pontos turísticos: \n");
     scanf("%d", &p_turistico2);
 
+    densidade2 = populacao2 / area2;
+    pibpc2 = pib2 / populacao2;
+
     printf("Carta 02 \n");
     printf("Codígo da carta: %s \n", codigo2);
     printf("Estado: %s - Cidade: %s \n", estado2, cidade2);
     printf("População: %d - Área: %f \n", populacao2, area2);
     printf("PIB: %f - Quantidade de pontos turísticos: %d \n", pib2, p_turistico2);
+    printf("Densidade populacional: %f \n", densidade2);
+    printf("P.I.B. per capita: %f \n", pibpc2);
 
     return 0;
 
