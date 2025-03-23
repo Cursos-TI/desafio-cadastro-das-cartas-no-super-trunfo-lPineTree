@@ -1,20 +1,27 @@
 #include <stdio.h>
 
 int main() {
-    int carta1, populacao1, p_turistico1;
+    int p_turistico1, p_turistico2;
     char codigo1[5], estado1[30], cidade1[30];
     float area1, pib1, densidade1, pibpc1;
-    
-    int carta2, populacao2, p_turistico2;
     char codigo2[5], estado2[30], cidade2[30];
     float area2, pib2, densidade2, pibpc2;
 
+    unsigned long int populacao1, populacao2;
+    float super1, super2;
+    int resultpop, resultarea, resultpib, resultp_turistico, resultpibpc, resultden;
+    
     /*
-    carta: número da carta
     p_turistico: número de pontos turísticos
     codigo: código da carta
     densidade: Densidade populacional
     pibpc: P.I.B. per capita
+    resultpop: Resultado da comparação das populações
+    resultarea: Resultado da comparação das áreas
+    resultpib: Resultado da comparação dos P.I.B.
+    resultp_turistico: Resultado da comparação do número de pontos turísticos
+    resultpibpc: Resultado da comparação dos P.I.B. per capita
+    resultden: Resultado da comparação das dencidades
     */
 
     printf("Vamos criar uma carta para o jogo de super trunfo! \n");
@@ -53,6 +60,11 @@ int main() {
     printf("Densidade populacional: %f \n", densidade1);
     printf("P.I.B. per capita: %f \n", pibpc1);
 
+    densidade1 = 1 / densidade1;
+    super1 = populacao1 + area1 + pib1 + p_turistico1 + pibpc1 - densidade1;
+
+    printf("O super poder dessa carta é %f\n", super1);
+
     printf("Agora vamos criar uma segunda carta! \n");
     printf("Digite o nome de outro estado brasileiro: \n");
     printf("(Não use espaços) \n");
@@ -88,6 +100,26 @@ int main() {
     printf("PIB: %f - Quantidade de pontos turísticos: %d \n", pib2, p_turistico2);
     printf("Densidade populacional: %f \n", densidade2);
     printf("P.I.B. per capita: %f \n", pibpc2);
+
+    densidade2 = 1 / densidade2;
+    super2 = populacao2 + area2 + pib2 + p_turistico2 + pibpc2 + densidade2;
+
+    printf("O super poder dessa carta é %f\n", super2);
+
+    resultpop = populacao1 > populacao2;
+    resultarea = area1 > area2;
+    resultpib = pib1 > pib2;
+    resultp_turistico = p_turistico1 > p_turistico2;
+    resultpibpc = pibpc1 > pibpc2;
+    resultden = densidade1 < densidade2;
+
+    printf("Comparaçao das cartas criadas:\n");
+    printf("População:%d\n", resultpop);
+    printf("Área:%d\n", resultarea);
+    printf("P.I.B:%d\n", resultpib);
+    printf("Número de pontos turísticos:%d\n", resultp_turistico);
+    printf("P.I.B. per capita:%d\n", resultpibpc);
+    printf("Densidade populacional:%d\n", resultden);
 
     return 0;
 
