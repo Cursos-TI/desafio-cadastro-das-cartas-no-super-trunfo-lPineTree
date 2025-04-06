@@ -115,8 +115,8 @@ int main() {
 
     printf("Comparaçao das cartas criadas:\n");
 
-    printf("População da Carta 1: %lld\n", populacao1);
-    printf("População da Carta 2: %lld\n", populacao2);
+    printf("População da Carta 1: %llu\n", populacao1);
+    printf("População da Carta 2: %llu\n", populacao2);
     if (resultpop == 1){
         printf("População: Carta 1 venceu\n");
     } else {
