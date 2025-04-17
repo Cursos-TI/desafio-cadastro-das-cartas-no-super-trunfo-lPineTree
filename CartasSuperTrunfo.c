@@ -1,15 +1,17 @@
 #include <stdio.h>
 
 int main() {
-    int p_turistico1, p_turistico2, opcao;
+    int p_turistico1, p_turistico2, opcao1, opcao2, resultfinal = 0;
     char codigo1[5], estado1[30], cidade1[30];
     float area1, pib1, densidade1, pibpc1;
     char codigo2[5], estado2[30], cidade2[30];
     float area2, pib2, densidade2, pibpc2;
+    double soma1opcao1 = 0, soma2opcao1 = 0, soma1opcao2 = 0, soma2opcao2 = 0, comparacao1 = 0, comparacao2 = 0;
 
     unsigned long long int populacao1, populacao2;
     float super1, super2;
     int resultpop, resultarea, resultpib, resultp_turistico, resultpibpc, resultden;
+    int opcaopop, opcaoarea, opcaopib, opcaop_turistico, opcaopibpc, opcaoden;
     
     /*
     p_turistico: número de pontos turísticos
@@ -121,88 +123,337 @@ int main() {
     printf("4. Quantidade de pontos turísticos\n");
     printf("5. P.I.B. per capita\n");
     printf("6. Densidade\n");
-    scanf("%d", &opcao);
+    scanf("%d", &opcao1);
 
-    switch (opcao){
-    case 1:
-        printf("Comparação da população das cartas criadas:\n");
-        printf("Nome do Estado:%s - População da Carta 1: %llu\n", estado1, populacao1);
-        printf("Nome do Estado:%s - População da Carta 2: %llu\n", estado2, populacao2);
-        if (resultpop == 1){
-            printf("Carta 1 venceu!\n");
-        } else if (populacao1 == populacao2){
-            printf("Deu empate.\n");
+    switch (opcao1){
+        case 1:
+            opcaopop = 1;
+            printf("Comparação da população das cartas criadas:\n");
+            printf("Nome do Estado:%s - População da Carta 1: %llu\n", estado1, populacao1);
+            printf("Nome do Estado:%s - População da Carta 2: %llu\n", estado2, populacao2);
+            if (populacao1 == populacao2){
+                printf("Deu empate.\n");
+            } else {
+                resultpop == 1 ? printf("A carta 1 venceu a rodada!\n") : printf("A carta 2 venceu a rodada!\n");}
+        break;
+        case 2:
+            opcaoarea = 1;
+            printf("Comparação da Área das cartas criadas:\n");
+            printf("Nome do Estado:%s - Área da Carta 1: %f\n", estado1, area1);
+            printf("Nome do Estado:%s - Área da Carta 2: %f\n", estado2, area2);
+            if (area1 == area2){
+                printf("Deu empate.\n");
+            } else {
+                resultarea == 1 ? printf("A carta 1 venceu a rodada!\n") : printf("A carta 2 venceu a rodada!\n");}
+        break;
+        case 3:
+            opcaopib = 1;
+            printf("Comparação do P.I.B. das cartas criadas:\n");
+            printf("Nome do Estado:%s - P.I.B. da Carta 1: %f\n", estado1, pib1);
+            printf("Nome do Estado:%s - P.I.B. da Carta 2: %f\n", estado2, pib2);
+            if (pib1 == pib2){
+                printf("Deu empate.\n");
+            } else {
+                resultpib == 1 ? printf("A carta 1 venceu a rodada!\n") : printf("A carta 2 venceu a rodada!\n");}
+        break;
+        case 4:
+            opcaop_turistico = 1;
+            printf("Comparação da quantidade de pontos turísticos das cartas criadas:\n");
+            printf("Nome do Estado:%s - quantidade de pontos turísticos da Carta 1: %f\n", estado1, p_turistico1);
+            printf("Nome do Estado:%s - Áreaquantidade de pontos turísticos da Carta 2: %f\n", estado2, p_turistico2);
+            if (p_turistico1 == p_turistico2){
+                printf("Deu empate.\n");
+            } else {
+                resultp_turistico == 1 ? printf("A carta 1 venceu a rodada!\n") : printf("A carta 2 venceu a rodada!\n");}
+        break;
+        case 5:
+            opcaopibpc = 1;
+            printf("Comparação do P.I.B. per capita das cartas criadas:\n");
+            printf("Nome do Estado:%s - P.I.B. per capita da Carta 1: %f\n", estado1, pibpc1);
+            printf("Nome do Estado:%s - P.I.B. per capita da Carta 2: %f\n", estado2, pibpc2);
+            if (pibpc1 == pibpc2){
+                printf("Deu empate.\n");
+            } else {
+                resultpibpc == 1 ? printf("A carta 1 venceu a rodada!\n") : printf("A carta 2 venceu a rodada!\n");}
+        break;
+        case 6:
+            opcaoden = 1;
+            densidade1 = 1 / densidade1;
+            densidade2 = 1 / densidade2;
+            printf("Comparação da Densidade das cartas criadas:\n");
+            printf("Nome do Estado:%s - Densidade da Carta 1: %f\n", estado1, densidade1);
+            printf("Nome do Estado:%s - Densidade da Carta 2: %f\n", estado2, densidade2);
+            if (densidade1 == densidade2){
+                printf("Deu empate.\n");
+            } else {
+                resultden == 1 ? printf("A carta 1 venceu a rodada!\n") : printf("A carta 2 venceu a rodada!\n");}
+        break;
+        default:
+            printf("Opção Inválida.");
+        break;}
+    
+        printf("Agora vamos comparar um segundo atributo das cartas criadas!\n");
+        printf("Qual atributo você deseja comparar?\n");
+        if (opcaopop != 1){
+            printf("1. População\n");}
+        if (opcaoarea != 1){
+            printf("2. Área\n");}
+        if (opcaopib != 1){
+            printf("3. P.I.B.\n");}
+        if (opcaop_turistico != 1){
+            printf("4. Quantidade de pontos turísticos\n");}
+        if (opcaopibpc != 1){
+            printf("5. P.I.B. per capita\n");}
+        if (opcaoden != 1){
+            printf("6. Densidade\n");}
+        scanf("%d", &opcao2);
+    
+        switch (opcao2){
+        case 1:
+            if (opcaopop == 1){
+                printf("Opção Inválida.");
+            } else {
+                printf("Comparação da população das cartas criadas:\n");
+                printf("Nome do Estado:%s - População da Carta 1: %llu\n", estado1, populacao1);
+                printf("Nome do Estado:%s - População da Carta 2: %llu\n", estado2, populacao2);
+                if (populacao1 == populacao2){
+                    printf("Deu empate.\n");
+                } else {
+                    resultpop == 1 ? printf("A carta 1 venceu a rodada!\n") : printf("A carta 2 venceu a rodada!\n");}}
+        break;
+        case 2:
+            if (opcaoarea == 1){
+                printf("Opção Inválida.");
+            } else {
+                printf("Comparação da Área das cartas criadas:\n");
+                printf("Nome do Estado:%s - Área da Carta 1: %f\n", estado1, area1);
+                printf("Nome do Estado:%s - Área da Carta 2: %f\n", estado2, area2);
+                if (area1 == area2){
+                    printf("Deu empate.\n");
+                } else {
+                resultarea == 1 ? printf("A carta 1 venceu a rodada!\n") : printf("A carta 2 venceu a rodada!\n");}}
+        break;
+        case 3:
+            if (opcaopib == 1){
+                printf("Opção Inválida.");
+            } else {
+                printf("Comparação do P.I.B. das cartas criadas:\n");
+                printf("Nome do Estado:%s - P.I.B. da Carta 1: %f\n", estado1, pib1);
+                printf("Nome do Estado:%s - P.I.B. da Carta 2: %f\n", estado2, pib2);
+                if (pib1 == pib2){
+                    printf("Deu empate.\n");
+                } else {
+                    resultpib == 1 ? printf("A carta 1 venceu a rodada!\n") : printf("A carta 2 venceu a rodada!\n");}}
+        break;
+        case 4:
+            if (opcaop_turistico == 1){
+                printf("Opção Inválida.");
+            } else {
+                printf("Comparação da quantidade de pontos turísticos das cartas criadas:\n");
+                printf("Nome do Estado:%s - quantidade de pontos turísticos da Carta 1: %f\n", estado1, p_turistico1);
+                printf("Nome do Estado:%s - Áreaquantidade de pontos turísticos da Carta 2: %f\n", estado2, p_turistico2);
+                if (p_turistico1 == p_turistico2){
+                    printf("Deu empate.\n");
+                } else {
+                    resultp_turistico == 1 ? printf("A carta 1 venceu a rodada!\n") : printf("A carta 2 venceu a rodada!\n");}}
+        break;
+        case 5:
+           if (opcaopibpc == 1){
+                printf("Opção Inválida.");
+            } else {
+                printf("Comparação do P.I.B. per capita das cartas criadas:\n");
+                printf("Nome do Estado:%s - P.I.B. per capita da Carta 1: %f\n", estado1, pibpc1);
+                printf("Nome do Estado:%s - P.I.B. per capita da Carta 2: %f\n", estado2, pibpc2);
+                if (pibpc1 == pibpc2){
+                    printf("Deu empate.\n");
+                } else {
+                    resultpibpc == 1 ? printf("A carta 1 venceu a rodada!\n") : printf("A carta 2 venceu a rodada!\n");}}
+        break;
+        case 6:
+            if (opcaoden == 1){
+                printf("Opção Inválida.");
+            } else {
+                densidade1 = 1 / densidade1;
+                densidade2 = 1 / densidade2;
+                printf("Comparação da Densidade das cartas criadas:\n");
+                printf("Nome do Estado:%s - Densidade da Carta 1: %f\n", estado1, densidade1);
+                printf("Nome do Estado:%s - Densidade da Carta 2: %f\n", estado2, densidade2);
+                if (densidade1 == densidade2){
+                    printf("Deu empate.\n");
+                } else {
+                    resultden == 1 ? printf("A carta 1 venceu a rodada!\n") : printf("A carta 2 venceu a rodada!\n");}
+            }
+        break;
+        default:
+            printf("Opção Inválida.");
+        break;}
+        
+        printf("Agora Vamos ver qual carta venceu o jogo.\n");
+        printf("Primeira Carta - Nome do Estado:%s\n", estado1);
+        printf("Resultado das comparações: ");
+        switch (opcao1){
+        case 1:
+            soma1opcao1 = populacao1;
+            printf("População:%llu + ", populacao1);
+        break;
+        case 2:
+            soma1opcao1 = area1;
+            printf("Área:%f + ", area1);
+        break;
+        case 3:
+            soma1opcao1 = pib1;
+            printf("P.I.B.:%f + ", pib1);
+        break;
+        case 4:
+            soma1opcao1 = p_turistico1;
+            printf("Quantidade de pontos turísticos:%d + ", p_turistico1);
+        break;
+        case 5:
+            soma1opcao1 = pibpc1;
+            printf("P.I.B. per capita:%f + ", pibpc1);
+        break;
+        case 6:
+            soma1opcao1 = densidade1;
+            printf("Densidade:%f + ", densidade1);
+        break;
+        default:
+            printf("Opção Inválida.");
+        break;}
+    
+        switch (opcao2){
+        case 1:
+        if (opcaopop == 1){
+            printf("Opção Inválida.");
         } else {
-            printf("Carta 2 venceu!\n");
-        };
-    break;
-    case 2:
-        printf("Comparação da Área das cartas criadas:\n");
-        printf("Nome do Estado:%s - Área da Carta 1: %f\n", estado1, area1);
-        printf("Nome do Estado:%s - Área da Carta 2: %f\n", estado2, area2);
-        if (resultarea == 1){
-            printf("Carta 1 venceu!\n");
-        } else if (area1 == area2){
-            printf("Deu empate.\n");
+            soma1opcao2 = populacao1;
+            printf("População:%llu\n", populacao1);}
+        break;
+        case 2:
+        if (opcaoarea == 1){
+            printf("Opção Inválida.");
         } else {
-            printf("Carta 2 venceu!\n");
-        };
-    break;
-    case 3:
-        printf("Comparação do P.I.B. das cartas criadas:\n");
-        printf("Nome do Estado:%s - P.I.B. da Carta 1: %f\n", estado1, pib1);
-        printf("Nome do Estado:%s - P.I.B. da Carta 2: %f\n", estado2, pib2);
-        if (resultpib == 1){
-            printf("Carta 1 venceu!\n");
-        } else if (pib1 == pib2){
-            printf("Deu empate.\n");
+            soma1opcao2 = area1;
+            printf("Área:%f\n", area1);}
+        break;
+        case 3:
+        if (opcaopib == 1){
+            printf("Opção Inválida.");
         } else {
-            printf("Carta 2 venceu!\n");
-        };
-    break;
-    case 4:
-        printf("Comparação da quantidade de pontos turísticos das cartas criadas:\n");
-        printf("Nome do Estado:%s - quantidade de pontos turísticos da Carta 1: %f\n", estado1, p_turistico1);
-        printf("Nome do Estado:%s - Áreaquantidade de pontos turísticos da Carta 2: %f\n", estado2, p_turistico2);
-        if (resultp_turistico == 1){
-            printf("Carta 1 venceu!\n");
-        } else if (p_turistico1 == p_turistico2){
-            printf("Deu empate.\n");
+            soma1opcao2 = pib1;
+            printf("P.I.B.:%f\n", pib1);}
+        break;
+        case 4:
+        if (opcaop_turistico == 1){
+            printf("Opção Inválida.");
         } else {
-            printf("Carta 2 venceu!\n");
-        };
-    break;
-    case 5:
-        printf("Comparação do P.I.B. per capita das cartas criadas:\n");
-        printf("Nome do Estado:%s - P.I.B. per capita da Carta 1: %f\n", estado1, pibpc1);
-        printf("Nome do Estado:%s - P.I.B. per capita da Carta 2: %f\n", estado2, pibpc2);
-        if (resultpibpc == 1){
-            printf("Carta 1 venceu!\n");
-        } else if (pibpc1 == pibpc2){
-            printf("Deu empate.\n");
+            soma1opcao2 = p_turistico1;
+            printf("Quantidade de pontos turísticos:%d\n", p_turistico1);}
+        break;
+        case 5:
+        if (opcaopibpc == 1){
+            printf("Opção Inválida.");
         } else {
-            printf("Carta 2 venceu!\n");
-        };
-    break;
-    case 6:
-        densidade1 = 1 / densidade1;
-        densidade2 = 1 / densidade2;
-        printf("Comparação da  Densidade das cartas criadas:\n");
-        printf("Nome do Estado:%s - Densidade da Carta 1: %f\n", estado1, densidade1);
-        printf("Nome do Estado:%s - Densidade da Carta 2: %f\n", estado2, densidade2);
-        if (resultden == 1){
-            printf("Carta 1 venceu!\n");
-        } else if (densidade1 == densidade2){
-            printf("Deu empate.\n");
+            soma1opcao2 = pibpc1;
+            printf("P.I.B. per capita:%f\n", pibpc1);}
+        break;
+        case 6:
+        if (opcaoden == 1){
+            printf("Opção Inválida.");
         } else {
-            printf("Carta 2 venceu!\n");
-        };
-    break;
-    default:
-        printf("Opção Inválida.");
-    break;
-    }
-
+            soma1opcao2 = densidade1;
+            printf("Densidade:%f\n", densidade1);}
+        break;
+        default:
+            printf("Opção Inválida.");
+        break;}
+    
+        comparacao1 = soma1opcao1 + soma1opcao2;
+        printf("Resultado das comparações:%f\n", comparacao1);
+        printf("Segunda Carta - Nome do Estado:%s\n", estado2);
+        printf("Resultado das comparações: ");
+    
+        switch (opcao1){
+        case 1:
+            soma2opcao1 = populacao2;
+            printf("População:%llu + ", populacao2);
+        break;
+        case 2:
+            soma2opcao1 = area2;
+            printf("Área:%f + ", area2);
+        break;
+        case 3:
+            soma2opcao1 = pib2;
+            printf("P.I.B.:%f + ", pib2);
+        break;
+        case 4:
+            soma2opcao1 = p_turistico2;
+            printf("Quantidade de pontos turísticos:%d + ", p_turistico2);
+        break;
+        case 5:
+            soma2opcao1 = pibpc2;
+            printf("P.I.B. per capita:%f + ", pibpc2);
+        break;
+        case 6:
+            soma2opcao1 = densidade2;
+            printf("Densidade:%f + ", densidade2);
+        break;
+        default:
+            printf("Opção Inválida.");
+        break;}
+    
+        switch (opcao2){
+        case 1:
+        if (opcaopop == 1){
+            printf("Opção Inválida.");
+        } else {
+            soma2opcao2 = populacao2;
+            printf("População:%llu\n", populacao2);}
+        break;
+        case 2:
+        if (opcaoarea == 1){
+            printf("Opção Inválida.");
+        } else {
+            soma2opcao2 = area2;
+            printf("Área:%f\n", area2);}
+        break;
+        case 3:
+        if (opcaopib == 1){
+            printf("Opção Inválida.");
+        } else {
+            soma2opcao2 = pib2;
+            printf("P.I.B.:%f\n", pib2);}
+        break;
+        case 4:
+        if (opcaop_turistico == 1){
+            printf("Opção Inválida.");
+        } else {
+            soma2opcao2 = p_turistico2;
+            printf("Quantidade de pontos turísticos:%d\n", p_turistico2);}
+        break;
+        case 5:
+        if (opcaopibpc == 1){
+            printf("Opção Inválida.");
+        } else {
+            soma2opcao2 = pibpc2;
+            printf("P.I.B. per capita:%f\n", pibpc2);}
+        break;
+        case 6:
+        if (opcaoden == 1){
+            printf("Opção Inválida.");
+        } else {
+            soma2opcao2 = densidade2;
+            printf("Densidade:%f\n", densidade2);}
+        break;
+        default:
+            printf("Opção Inválida.");
+        break;}
+    
+        comparacao2 = soma2opcao1 + soma2opcao2;
+        printf("Resultado das comparações:%f\n", comparacao2);
+        resultfinal = comparacao1 > comparacao2;
+        if (comparacao1 == comparacao2){
+            printf("O jogo resultou em um empate.");
+        } else {
+            resultfinal = 0 ? printf("A carta 1 venceu o jogo!") : printf("A carta 2 venceu o jogo!");}
     return 0;
-
-}
+    }
