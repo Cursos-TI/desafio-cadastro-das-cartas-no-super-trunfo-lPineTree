@@ -29,30 +29,31 @@ int main() {
     printf("Vamos criar uma carta para o jogo de super trunfo!\n");
     printf("Digite o nome de um estado brasileiro para essa carta:\n ");
     printf("(Não use espaços)\n");
-    scanf("%s", &estado1);
+    scanf("%s", &estado1); // Registrando a escolha do jogador
 
     printf("Agora, digite o nome de uma cidade desse estado:\n");
     printf("(Não use espaços)\n");
-    scanf("%s", &cidade1);
+    scanf("%s", &cidade1); // Registrando a escolha do jogador
 
     printf("Digite o código da carta:\n");
     printf("(Primeira letra do estado + o número dessa carta)\n");
-    scanf("%s", &codigo1);
+    scanf("%s", &codigo1); // Registrando a escolha do jogador
 
     printf("Digite sua população:\n");
-    scanf("%llu", &populacao1);
+    scanf("%llu", &populacao1); // Registrando a escolha do jogador
 
     printf("Digite sua área em kilometros quadrados:\n");
-    scanf("%f", &area1);
+    scanf("%f", &area1); // Registrando a escolha do jogador
 
     printf("Digite seu PIB:\n");
-    scanf("%f", &pib1);
+    scanf("%f", &pib1); // Registrando a escolha do jogador
 
     printf("Digite sua quantidade pontos turísticos:\n");
-    scanf("%d", &p_turistico1);
+    scanf("%d", &p_turistico1); // Registrando a escolha do jogador
 
     densidade1 = populacao1 / area1;
     pibpc1 = pib1 / populacao1;
+    //Calculando a densidade populacional e o pib per capita
 
     printf("Carta 01\n");
     printf("Codígo da carta:%s\n", codigo1);
@@ -61,39 +62,42 @@ int main() {
     printf("PIB:%f - Quantidade de pontos turísticos:%d\n", pib1, p_turistico1);
     printf("Densidade populacional:%f\n", densidade1);
     printf("P.I.B. per capita:%f\n", pibpc1);
+    //Mostrando ao jogador a carta criada
 
     densidade1 = 1 / densidade1;
     super1 = populacao1 + area1 + pib1 + p_turistico1 + pibpc1 - densidade1;
+    //Invertendo a densidade populacional para fazer o calculo do super
 
     printf("O super poder dessa carta é:%f\n", super1);
 
     printf("Agora vamos criar uma segunda carta!\n");
     printf("Digite o nome de outro estado brasileiro:\n");
     printf("(Não use espaços)\n");
-    scanf("%s", &estado2);
+    scanf("%s", &estado2); // Registrando a escolha do jogador
 
     printf("Agora, digite o nome de uma cidade desse estado:\n");
     printf("(Não use espaços)\n");
-    scanf("%s", &cidade2);
+    scanf("%s", &cidade2); // Registrando a escolha do jogador
 
     printf("Digite o código da carta:\n");
     printf("(Primeira letra do estado + o número dessa carta)\n");
-    scanf("%s", &codigo2);
+    scanf("%s", &codigo2); // Registrando a escolha do jogador
 
     printf("Digite sua população:\n");
-    scanf("%llu", &populacao2);
+    scanf("%llu", &populacao2); // Registrando a escolha do jogador
 
     printf("Digite sua área em kilometros quadrados:\n");
-    scanf("%f", &area2);
+    scanf("%f", &area2); // Registrando a escolha do jogador
 
     printf("Digite seu PIB:\n");
-    scanf("%f", &pib2);
+    scanf("%f", &pib2); // Registrando a escolha do jogador
 
     printf("Digite sua quantidade pontos turísticos:\n");
-    scanf("%d", &p_turistico2);
+    scanf("%d", &p_turistico2); // Registrando a escolha do jogador
 
     densidade2 = populacao2 / area2;
     pibpc2 = pib2 / populacao2;
+    //Calculando a densidade populacional e o pib per capita
 
     printf("Carta 02\n");
     printf("Codígo da carta:%s\n", codigo2);
@@ -102,9 +106,11 @@ int main() {
     printf("PIB:%f - Quantidade de pontos turísticos:%d\n", pib2, p_turistico2);
     printf("Densidade populacional:%f\n", densidade2);
     printf("P.I.B. per capita:%f\n", pibpc2);
+    //Mostrando ao jogador a carta criada
 
     densidade2 = 1 / densidade2;
     super2 = populacao2 + area2 + pib2 + p_turistico2 + pibpc2 + densidade2;
+    //Invertendo a densidade populacional para fazer o calculo do super
 
     printf("O super poder dessa carta é:%f\n", super2);
 
@@ -114,6 +120,7 @@ int main() {
     resultp_turistico = p_turistico1 > p_turistico2;
     resultpibpc = pibpc1 > pibpc2;
     resultden = densidade1 > densidade2;
+    //Calculando qual carta tem o maior atributo
 
     printf("Vamos comparar as cartas criadas!\n");
     printf("Qual atributo você deseja comparar?\n");
@@ -123,9 +130,10 @@ int main() {
     printf("4. Quantidade de pontos turísticos\n");
     printf("5. P.I.B. per capita\n");
     printf("6. Densidade\n");
-    scanf("%d", &opcao1);
+    scanf("%d", &opcao1); // Registrando a escolha do jogador
 
     switch (opcao1){
+    //Mostrando o resultado da comparação do atributo escolhido pelo jogador
         case 1:
             opcaopop = 1;
             printf("Comparação da população das cartas criadas:\n");
@@ -180,6 +188,7 @@ int main() {
             opcaoden = 1;
             densidade1 = 1 / densidade1;
             densidade2 = 1 / densidade2;
+            //Invertendo a densidade para mostrar ao jogador o resultado da comparação
             printf("Comparação da Densidade das cartas criadas:\n");
             printf("Nome do Estado:%s - Densidade da Carta 1: %f\n", estado1, densidade1);
             printf("Nome do Estado:%s - Densidade da Carta 2: %f\n", estado2, densidade2);
@@ -206,9 +215,10 @@ int main() {
             printf("5. P.I.B. per capita\n");}
         if (opcaoden != 1){
             printf("6. Densidade\n");}
-        scanf("%d", &opcao2);
+        scanf("%d", &opcao2); // Registrando a escolha do jogador
     
         switch (opcao2){
+        //Mostrando o resultado da comparação do segundo atributo escolhido pelo jogador
         case 1:
             if (opcaopop == 1){
                 printf("Opção Inválida.");
@@ -275,6 +285,7 @@ int main() {
             } else {
                 densidade1 = 1 / densidade1;
                 densidade2 = 1 / densidade2;
+                //Invertendo a densidade para mostrar ao jogador o resultado da comparação
                 printf("Comparação da Densidade das cartas criadas:\n");
                 printf("Nome do Estado:%s - Densidade da Carta 1: %f\n", estado1, densidade1);
                 printf("Nome do Estado:%s - Densidade da Carta 2: %f\n", estado2, densidade2);
@@ -292,6 +303,7 @@ int main() {
         printf("Primeira Carta - Nome do Estado:%s\n", estado1);
         printf("Resultado das comparações: ");
         switch (opcao1){
+        //Calculando o resultado final da comparação das cartas
         case 1:
             soma1opcao1 = populacao1;
             printf("População:%llu + ", populacao1);
@@ -373,6 +385,7 @@ int main() {
         printf("Resultado das comparações: ");
     
         switch (opcao1){
+        //Calculando o resultado final da comparação das cartas
         case 1:
             soma2opcao1 = populacao2;
             printf("População:%llu + ", populacao2);
@@ -449,6 +462,7 @@ int main() {
         break;}
     
         comparacao2 = soma2opcao1 + soma2opcao2;
+        //Mostrando ao jogador o resultado final da comparação das cartas
         printf("Resultado das comparações:%f\n", comparacao2);
         resultfinal = comparacao1 > comparacao2;
         if (comparacao1 == comparacao2){
